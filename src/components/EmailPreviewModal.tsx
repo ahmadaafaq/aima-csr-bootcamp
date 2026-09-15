@@ -156,28 +156,30 @@ Payment Status: ${paymentStatus.toUpperCase()}
               Nominated Cross-Functional Delegates ({formData.nominees.length} Total):
             </h4>
             <div className="border border-gray-200 rounded-sm overflow-hidden">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-gray-100 text-gray-600 font-bold border-b border-gray-200">
-                  <tr>
-                    <th className="p-2">#</th>
-                    <th className="p-2">Name</th>
-                    <th className="p-2">Designation</th>
-                    <th className="p-2">Email</th>
-                    <th className="p-2">Mobile</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {formData.nominees.map((nom, i) => (
-                    <tr key={i}>
-                      <td className="p-2 font-mono">{i + 1}</td>
-                      <td className="p-2 font-semibold">{nom.name}</td>
-                      <td className="p-2 text-gray-600">{nom.designation}</td>
-                      <td className="p-2 font-mono text-[11px]">{nom.email}</td>
-                      <td className="p-2 font-mono text-[11px]">{nom.mobile}</td>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs min-w-[450px]">
+                  <thead className="bg-gray-100 text-gray-600 font-bold border-b border-gray-200">
+                    <tr>
+                      <th className="p-2">#</th>
+                      <th className="p-2">Name</th>
+                      <th className="p-2">Designation</th>
+                      <th className="p-2">Email</th>
+                      <th className="p-2">Mobile</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {formData.nominees.map((nom, i) => (
+                      <tr key={i}>
+                        <td className="p-2 font-mono">{i + 1}</td>
+                        <td className="p-2 font-semibold">{nom.name}</td>
+                        <td className="p-2 text-gray-600">{nom.designation}</td>
+                        <td className="p-2 font-mono text-[11px]">{nom.email}</td>
+                        <td className="p-2 font-mono text-[11px]">{nom.mobile}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 

@@ -40,12 +40,12 @@ export const SectionOrgDetails: React.FC<SectionOrgDetailsProps> = ({
         </button>
       </div>
 
-      <div className="p-6 sm:p-8 space-y-6">
-        <p className="text-sm text-gray-600 border-l-3 border-[#0b3c68] pl-3 py-0.5 bg-gray-50">
+      <div className="p-4 sm:p-8 space-y-6">
+        <p className="text-xs sm:text-sm text-gray-600 border-l-3 border-[#0b3c68] pl-3 py-1 bg-gray-50">
           Please enter the official details of the nominating corporation or institution. These details will be utilized for registration verification, programme communication, and certificate issuance.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {/* Organisation Name */}
           <div className="md:col-span-2">
             <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
@@ -145,7 +145,7 @@ export const SectionOrgDetails: React.FC<SectionOrgDetailsProps> = ({
           {/* Mobile / Contact Number */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
-              Sponsoring Authority – Mobile / Contact Number <span className="text-red-600">*</span>
+              Sponsoring Authority – Mobile Number <span className="text-red-600">*</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
@@ -169,11 +169,11 @@ export const SectionOrgDetails: React.FC<SectionOrgDetailsProps> = ({
         </div>
 
         {/* Action Controls */}
-        <div className="pt-6 border-t border-gray-200 flex justify-end">
+        <div className="pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-end items-stretch sm:items-center">
           <button
             type="button"
             onClick={onNext}
-            className="px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <span>Proceed to CSR Profile</span>
             <ArrowRight className="w-4 h-4" />

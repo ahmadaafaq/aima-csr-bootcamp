@@ -33,7 +33,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
         </div>
       </div>
 
-      <div className="p-6 sm:p-8 space-y-8">
+      <div className="p-4 sm:p-8 space-y-6 sm:space-y-8">
         {/* Invoicing Details Sub-heading */}
         <div>
           <h3 className="text-xs font-bold text-[#0b3c68] uppercase tracking-wider pb-2 border-b border-gray-200 flex items-center gap-2">
@@ -41,7 +41,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
             Organisation Details for Official Tax Invoicing
           </h3>
 
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {/* Billing Organisation Name */}
             <div className="md:col-span-2">
               <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
@@ -156,7 +156,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
             Accounts / Billing Focal Point
           </h3>
 
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {/* Contact Person */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
@@ -237,7 +237,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
             Payment Preference <span className="text-red-600">*</span>
           </label>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {/* Option 1: Pay Now */}
             <label
               className={`p-4 rounded-sm border cursor-pointer transition-all flex items-start gap-3.5 ${
@@ -256,7 +256,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
               />
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-[#0b3c68]" />
+                  <CreditCard className="w-4 h-4 text-[#0b3c68] shrink-0" />
                   <span className="text-xs font-bold text-gray-900 uppercase">
                     Pay Now (Instant Confirmation)
                   </span>
@@ -288,7 +288,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
               />
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <Receipt className="w-4 h-4 text-[#0b3c68]" />
+                  <Receipt className="w-4 h-4 text-[#0b3c68] shrink-0" />
                   <span className="text-xs font-bold text-gray-900 uppercase">
                     Pay Later / Corporate Invoice
                   </span>
@@ -308,7 +308,7 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
             <div className="mt-4 p-4 bg-[#f0f7fd] border border-[#0b3c68]/30 rounded-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#0b3c68] uppercase">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Integrated Payment Gateway (UPI, Corporate Cards, Net Banking & RTGS)</span>
                 </div>
                 <p className="text-[11px] text-gray-600">
@@ -319,10 +319,10 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
                 <button
                   type="button"
                   onClick={onOpenPaymentGateway}
-                  className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-colors shadow-xs flex items-center gap-1.5 whitespace-nowrap"
+                  className="w-full sm:w-auto px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-colors shadow-xs flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Test Payment Gateway Now</span>
+                  <span>Test Payment Gateway</span>
                 </button>
               )}
             </div>
@@ -330,11 +330,11 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
         </div>
 
         {/* Navigation Buttons */}
-        <div className="pt-6 border-t border-gray-200 flex justify-between items-center">
+        <div className="pt-6 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3">
           <button
             type="button"
             onClick={onPrev}
-            className="px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Previous</span>
@@ -343,9 +343,9 @@ export const SectionBilling: React.FC<SectionBillingProps> = ({
           <button
             type="button"
             onClick={onNext}
-            className="px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
-            <span>Proceed to Management Authorisation</span>
+            <span>Proceed to Authorisation</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

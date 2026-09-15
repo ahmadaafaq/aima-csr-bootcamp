@@ -64,15 +64,15 @@ export const SectionNominees: React.FC<SectionNomineesProps> = ({
         </div>
       </div>
 
-      <div className="p-6 sm:p-8 space-y-6">
+      <div className="p-4 sm:p-8 space-y-6">
         {/* Supporting Guidance Banner */}
-        <div className="p-4 bg-gray-50 border-l-4 border-[#0b3c68] text-xs text-gray-700 leading-relaxed rounded-r-sm">
+        <div className="p-3.5 sm:p-4 bg-gray-50 border-l-4 border-[#0b3c68] text-xs text-gray-700 leading-relaxed rounded-r-sm">
           <p className="font-semibold text-[#0b3c68] mb-1">Collaborative Cross-Functional Nomination:</p>
           Organisations may nominate cross-functional teams (e.g. CSR, Sustainability, Corporate Affairs, Finance, ESG, Legal) to support collaborative case work and development of an actionable 12-month CSR roadmap during the Bootcamp.
         </div>
 
         {/* Dynamic Nominee List */}
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           {nominees.map((nominee, index) => {
             const numStr = String(index + 1).padStart(2, '0');
             const nameError = errors[`nominee_${index}_name`];
@@ -91,7 +91,7 @@ export const SectionNominees: React.FC<SectionNomineesProps> = ({
                     <span className="bg-[#0b3c68] text-white text-xs font-bold px-2 py-0.5 rounded-sm">
                       {numStr}
                     </span>
-                    <span className="text-xs font-bold text-gray-800 uppercase tracking-wide">
+                    <span className="text-xs font-bold text-gray-800 uppercase tracking-wide truncate max-w-[180px] sm:max-w-none">
                       Nominee #{index + 1}
                       {nominee.name ? ` — ${nominee.name}` : ''}
                     </span>
@@ -101,7 +101,7 @@ export const SectionNominees: React.FC<SectionNomineesProps> = ({
                     <button
                       type="button"
                       onClick={() => handleRemoveNominee(index)}
-                      className="text-xs text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded transition-colors flex items-center gap-1 font-medium"
+                      className="text-xs text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded transition-colors flex items-center gap-1 font-medium cursor-pointer"
                       title="Remove this participant"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -223,14 +223,14 @@ export const SectionNominees: React.FC<SectionNomineesProps> = ({
         )}
 
         {/* Add Nominee Action Bar */}
-        <div className="pt-2 flex flex-col sm:flex-row justify-between items-center gap-4 bg-[#f8fafc] p-4 border border-dashed border-gray-300 rounded-sm">
+        <div className="pt-2 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 bg-[#f8fafc] p-4 border border-dashed border-gray-300 rounded-sm">
           <div className="text-xs text-gray-600">
             <span className="font-semibold text-gray-800">Tier benefit unlocked:</span> Adding 4+ or 8+ participants automatically unlocks institutional group slab rates in the next step.
           </div>
           <button
             type="button"
             onClick={handleAddNominee}
-            className="w-full sm:w-auto px-4 py-2 bg-white hover:bg-gray-100 text-[#0b3c68] border border-[#0b3c68] font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-2xs"
+            className="w-full sm:w-auto px-4 py-2 bg-white hover:bg-gray-100 text-[#0b3c68] border border-[#0b3c68] font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-2xs shrink-0 cursor-pointer"
           >
             <UserPlus className="w-4 h-4 text-[#0b3c68]" />
             <span>+ Add Nominee</span>
@@ -238,11 +238,11 @@ export const SectionNominees: React.FC<SectionNomineesProps> = ({
         </div>
 
         {/* Navigation Buttons */}
-        <div className="pt-6 border-t border-gray-200 flex justify-between items-center">
+        <div className="pt-6 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3">
           <button
             type="button"
             onClick={onPrev}
-            className="px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Previous</span>
@@ -251,7 +251,7 @@ export const SectionNominees: React.FC<SectionNomineesProps> = ({
           <button
             type="button"
             onClick={onNext}
-            className="px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <span>Proceed to Fee Calculation</span>
             <ArrowRight className="w-4 h-4" />

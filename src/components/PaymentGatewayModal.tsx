@@ -347,18 +347,18 @@ export const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({
                     <label className="block text-xs font-bold uppercase text-gray-700">
                       Corporate UPI ID (VPA)
                     </label>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"
                         value={upiId}
                         onChange={(e) => setUpiId(e.target.value)}
                         placeholder="e.g. yourcompany@icici"
-                        className="grow px-3 py-2 text-xs border border-gray-300 rounded-sm focus:border-[#0b3c68] outline-none font-mono"
+                        className="w-full sm:grow px-3 py-2 text-xs border border-gray-300 rounded-sm focus:border-[#0b3c68] outline-none font-mono"
                       />
                       <button
                         type="button"
                         onClick={() => executePaymentSuccess('upi', `UPI VPA (${upiId})`, upiId)}
-                        className="px-5 py-2 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-colors whitespace-nowrap"
+                        className="w-full sm:w-auto px-5 py-2 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-colors whitespace-nowrap"
                       >
                         Verify & Pay {formatINR(amount)}
                       </button>
@@ -628,13 +628,13 @@ export const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({
                     <label className="block text-[11px] font-bold uppercase text-gray-700">
                       Bank Transaction / UTR Reference No.
                     </label>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"
                         value={utrNumber}
                         onChange={(e) => setUtrNumber(e.target.value)}
                         placeholder="e.g. CMS2026998821"
-                        className="grow px-3 py-2 text-xs font-mono border border-gray-300 rounded-sm focus:border-[#0b3c68] outline-none uppercase"
+                        className="w-full sm:grow px-3 py-2 text-xs font-mono border border-gray-300 rounded-sm focus:border-[#0b3c68] outline-none uppercase"
                       />
                       <button
                         type="button"
@@ -645,7 +645,7 @@ export const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({
                             `Virtual A/C AIMACSR20268892`
                           )
                         }
-                        className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-colors whitespace-nowrap"
+                        className="w-full sm:w-auto px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-colors whitespace-nowrap"
                       >
                         Simulate RTGS Confirmation
                       </button>

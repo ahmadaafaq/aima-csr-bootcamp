@@ -98,8 +98,26 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
       </div>
 
       {/* Mobile Stepper */}
-      <div className="md:hidden p-3 bg-white">
-        <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
+      <div className="md:hidden p-3 bg-white space-y-2">
+        <div className="flex items-center justify-between text-xs text-gray-600">
+          <span className="font-bold text-[#0b3c68]">
+            {STEPS[currentStep - 1]?.label} ({currentStep}/7)
+          </span>
+          <span className="text-[11px] text-gray-500 font-medium">
+            {STEPS[currentStep - 1]?.sublabel}
+          </span>
+        </div>
+
+        {/* Mini progress bar for mobile */}
+        <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
+          <div
+            className="bg-[#0b3c68] h-full transition-all duration-300 rounded-full"
+            style={{ width: `${(currentStep / 7) * 100}%` }}
+          />
+        </div>
+
+        {/* Scrollable Step Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pt-1 pb-0.5 scrollbar-none">
           {STEPS.map((step) => {
             const isCurrent = currentStep === step.id;
             const isCompleted = completedSteps.includes(step.id) || currentStep > step.id;
@@ -109,15 +127,17 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
                 key={step.id}
                 type="button"
                 onClick={() => onSelectStep(step.id)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold whitespace-nowrap transition-colors shrink-0 ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-semibold whitespace-nowrap transition-colors shrink-0 ${
                   isCurrent
-                    ? 'bg-[#0b3c68] text-white'
+                    ? 'bg-[#0b3c68] text-white shadow-xs'
                     : isCompleted
-                    ? 'bg-emerald-100 text-emerald-900'
-                    : 'bg-gray-100 text-gray-700'
+                    ? 'bg-emerald-100 text-emerald-900 border border-emerald-200'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                <span>{isCompleted ? '✓' : step.id}.</span>
+                <span className="w-4 h-4 rounded-full bg-black/10 flex items-center justify-center text-[10px] font-bold">
+                  {isCompleted ? '✓' : step.id}
+                </span>
                 <span>{step.label}</span>
               </button>
             );

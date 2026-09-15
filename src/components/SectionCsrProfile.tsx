@@ -53,7 +53,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
         </div>
       </div>
 
-      <div className="p-6 sm:p-8 space-y-8">
+      <div className="p-4 sm:p-8 space-y-6 sm:space-y-8">
         <div className="flex items-start gap-3 p-3.5 bg-sky-50 border border-sky-200 rounded-sm text-xs text-sky-900">
           <Info className="w-4 h-4 text-[#0b3c68] shrink-0 mt-0.5" />
           <p>
@@ -66,7 +66,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
           <label className="block text-xs font-bold uppercase tracking-wider text-gray-800 mb-2">
             Annual CSR Budget Slab <span className="text-red-600">*</span>
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
             {BUDGET_SLABS.map((slab) => {
               const isSelected = formData.annualBudgetSlab === slab;
               return (
@@ -74,8 +74,8 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
                   key={slab}
                   className={`flex items-center gap-3 p-3 rounded-sm border cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-[#edf5fb] border-[#0b3c68] shadow-xs'
-                      : 'border-gray-200 hover:bg-gray-50'
+                      ? 'bg-[#edf5fb] border-[#0b3c68] shadow-xs ring-1 ring-[#0b3c68]'
+                      : 'border-gray-200 hover:bg-gray-50 bg-white'
                   }`}
                 >
                   <input
@@ -112,7 +112,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
             {FOCUS_AREAS.map((area) => {
               const isSelected = formData.focusAreas.includes(area);
               return (
@@ -120,7 +120,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
                   type="button"
                   key={area}
                   onClick={() => toggleFocusArea(area)}
-                  className={`flex items-start gap-2.5 p-2.5 rounded-sm border text-left text-xs transition-all ${
+                  className={`flex items-start gap-2.5 p-2.5 rounded-sm border text-left text-xs transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#edf5fb] border-[#0b3c68] text-[#0b3c68] font-semibold'
                       : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
@@ -131,7 +131,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
                   ) : (
                     <Square className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                   )}
-                  <span>{area}</span>
+                  <span className="leading-snug">{area}</span>
                 </button>
               );
             })}
@@ -152,7 +152,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
             {EXECUTION_CHANNELS.map((channel) => {
               const isSelected = formData.executionChannels.includes(channel);
               return (
@@ -160,7 +160,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
                   type="button"
                   key={channel}
                   onClick={() => toggleExecutionChannel(channel)}
-                  className={`flex items-start gap-2.5 p-2.5 rounded-sm border text-left text-xs transition-all ${
+                  className={`flex items-start gap-2.5 p-2.5 rounded-sm border text-left text-xs transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#edf5fb] border-[#0b3c68] text-[#0b3c68] font-semibold'
                       : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
@@ -171,7 +171,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
                   ) : (
                     <Square className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                   )}
-                  <span>{channel}</span>
+                  <span className="leading-snug">{channel}</span>
                 </button>
               );
             })}
@@ -193,11 +193,11 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
         </div>
 
         {/* Navigation Buttons */}
-        <div className="pt-6 border-t border-gray-200 flex justify-between items-center">
+        <div className="pt-6 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3">
           <button
             type="button"
             onClick={onPrev}
-            className="px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Previous</span>
@@ -206,7 +206,7 @@ export const SectionCsrProfile: React.FC<SectionCsrProfileProps> = ({
           <button
             type="button"
             onClick={onNext}
-            className="px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <span>Proceed to Nominee Details</span>
             <ArrowRight className="w-4 h-4" />

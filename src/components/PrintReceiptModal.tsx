@@ -97,15 +97,15 @@ AIMA Centre for Management Education, New Delhi | csrbootcamp@aima.in
         </div>
 
         {/* Action Controls Strip */}
-        <div className="bg-[#f0f7fd] border-b border-gray-200 px-5 py-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0">
+        <div className="bg-[#f0f7fd] border-b border-gray-200 px-4 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0">
           <span className="text-xs text-gray-700 font-medium">
             Registration Reference: <strong className="font-mono text-[#0b3c68]">{referenceNumber}</strong>
           </span>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <button
               onClick={handleCopy}
-              className="px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+              className="px-2.5 sm:px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'Copied' : 'Copy'}</span>
@@ -113,24 +113,24 @@ AIMA Centre for Management Education, New Delhi | csrbootcamp@aima.in
 
             <button
               onClick={handleDownload}
-              className="px-3 py-1.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-xs"
+              className="px-2.5 sm:px-3 py-1.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-xs"
             >
               {downloadSuccess ? <CheckCircle2 className="w-3.5 h-3.5 text-amber-300" /> : <Download className="w-3.5 h-3.5" />}
-              <span>{downloadSuccess ? 'Downloaded HTML' : 'Download Document'}</span>
+              <span>{downloadSuccess ? 'Saved' : 'Download'}</span>
             </button>
 
             <button
               onClick={handlePrint}
-              className="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-xs"
+              className="px-2.5 sm:px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-sm text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-xs"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
+              <span>Print PDF</span>
             </button>
           </div>
         </div>
 
         {/* Printable Document Preview Area */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-6 bg-white text-gray-800 text-xs leading-relaxed font-sans">
+        <div className="p-4 sm:p-8 overflow-y-auto space-y-6 bg-white text-gray-800 text-xs leading-relaxed font-sans">
           {/* Document Header */}
           <div className="border-b-2 border-[#0b3c68] pb-5 flex flex-col sm:flex-row justify-between gap-4">
             <div>
@@ -226,30 +226,32 @@ AIMA Centre for Management Education, New Delhi | csrbootcamp@aima.in
               <span>Nominated Executive Delegates ({formData.nominees.length})</span>
               <span className="text-gray-500 font-normal">AIMA Executive Registry</span>
             </div>
-            <table className="w-full text-left text-xs">
-              <thead className="bg-gray-50 text-gray-500 font-semibold border-b border-gray-200 text-[11px]">
-                <tr>
-                  <th className="p-2.5">#</th>
-                  <th className="p-2.5">Delegate Name</th>
-                  <th className="p-2.5">Designation</th>
-                  <th className="p-2.5">Corporate Email</th>
-                  <th className="p-2.5">Mobile</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {formData.nominees.map((nom, i) => (
-                  <tr key={nom.id || i}>
-                    <td className="p-2.5 font-mono font-bold text-[#0b3c68]">
-                      {String(i + 1).padStart(2, '0')}
-                    </td>
-                    <td className="p-2.5 font-bold text-gray-900">{nom.name}</td>
-                    <td className="p-2.5 text-gray-600">{nom.designation}</td>
-                    <td className="p-2.5 font-mono text-gray-600">{nom.email}</td>
-                    <td className="p-2.5 font-mono text-gray-600">+91 {nom.mobile}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs min-w-[500px]">
+                <thead className="bg-gray-50 text-gray-500 font-semibold border-b border-gray-200 text-[11px]">
+                  <tr>
+                    <th className="p-2.5">#</th>
+                    <th className="p-2.5">Delegate Name</th>
+                    <th className="p-2.5">Designation</th>
+                    <th className="p-2.5">Corporate Email</th>
+                    <th className="p-2.5">Mobile</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {formData.nominees.map((nom, i) => (
+                    <tr key={nom.id || i}>
+                      <td className="p-2.5 font-mono font-bold text-[#0b3c68]">
+                        {String(i + 1).padStart(2, '0')}
+                      </td>
+                      <td className="p-2.5 font-bold text-gray-900">{nom.name}</td>
+                      <td className="p-2.5 text-gray-600">{nom.designation}</td>
+                      <td className="p-2.5 font-mono text-gray-600">{nom.email}</td>
+                      <td className="p-2.5 font-mono text-gray-600">+91 {nom.mobile}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           {/* Fee & Tax Breakdown */}
@@ -306,25 +308,25 @@ AIMA Centre for Management Education, New Delhi | csrbootcamp@aima.in
         </div>
 
         {/* Bottom Footer Action */}
-        <div className="bg-gray-100 px-5 py-3 border-t border-gray-200 flex justify-between items-center shrink-0">
+        <div className="bg-gray-100 px-4 sm:px-5 py-3 border-t border-gray-200 flex flex-wrap justify-between items-center gap-2 shrink-0">
           <button
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors"
+            className="px-3.5 py-1.5 border border-gray-300 text-gray-700 hover:bg-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors"
           >
             Close
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handleDownload}
-              className="px-4 py-2 bg-[#0b3c68] hover:bg-[#082a4a] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-1.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-1.5"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download HTML Receipt</span>
+              <span>Download HTML</span>
             </button>
             <button
               onClick={handlePrint}
-              className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-1.5"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print PDF</span>

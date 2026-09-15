@@ -31,12 +31,12 @@ export const SectionAuthorisation: React.FC<SectionAuthorisationProps> = ({
         </div>
       </div>
 
-      <div className="p-6 sm:p-8 space-y-6">
-        <p className="text-sm text-gray-600 border-l-3 border-[#0b3c68] pl-3 py-1 bg-gray-50">
+      <div className="p-4 sm:p-8 space-y-6">
+        <p className="text-xs sm:text-sm text-gray-600 border-l-3 border-[#0b3c68] pl-3 py-1 bg-gray-50">
           This nomination form requires official management endorsement. Please confirm that the nominating officer has appropriate organizational authority to approve participation and associated fees.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {/* Executive Name */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
@@ -88,7 +88,7 @@ export const SectionAuthorisation: React.FC<SectionAuthorisationProps> = ({
 
         {/* Declaration Box */}
         <div
-          className={`p-5 rounded-sm border transition-all ${
+          className={`p-4 sm:p-5 rounded-sm border transition-all ${
             errors.isAuthorized
               ? 'bg-red-50/50 border-red-300 ring-1 ring-red-400'
               : 'bg-[#f8fafc] border-gray-300'
@@ -99,7 +99,7 @@ export const SectionAuthorisation: React.FC<SectionAuthorisationProps> = ({
               type="checkbox"
               checked={formData.isAuthorized}
               onChange={(e) => onChange('isAuthorized', e.target.checked)}
-              className="w-5 h-5 text-[#0b3c68] focus:ring-[#0b3c68] rounded mt-0.5"
+              className="w-5 h-5 text-[#0b3c68] focus:ring-[#0b3c68] rounded mt-0.5 shrink-0"
             />
             <div className="space-y-1 text-xs text-gray-700 leading-relaxed">
               <span className="font-bold text-gray-900 block text-sm">
@@ -119,11 +119,11 @@ export const SectionAuthorisation: React.FC<SectionAuthorisationProps> = ({
         </div>
 
         {/* Navigation Buttons */}
-        <div className="pt-6 border-t border-gray-200 flex justify-between items-center">
+        <div className="pt-6 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3">
           <button
             type="button"
             onClick={onPrev}
-            className="px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Previous</span>
@@ -132,7 +132,7 @@ export const SectionAuthorisation: React.FC<SectionAuthorisationProps> = ({
           <button
             type="button"
             onClick={onNext}
-            className="px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <span>Proceed to Review & Submit</span>
             <ArrowRight className="w-4 h-4" />

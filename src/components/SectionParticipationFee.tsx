@@ -31,10 +31,10 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
         </div>
       </div>
 
-      <div className="p-6 sm:p-8 space-y-8">
+      <div className="p-4 sm:p-8 space-y-6 sm:space-y-8">
         {/* Institutional Fee Slabs Reference Table */}
         <div>
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
             <label className="text-xs font-bold uppercase tracking-wider text-gray-800 flex items-center gap-1.5">
               <Tag className="w-3.5 h-3.5 text-[#0b3c68]" />
               Approved Fee Structure (Per Participant / Slab)
@@ -108,11 +108,11 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
         </div>
 
         {/* AIMA Member 10% Discount Toggle Box */}
-        <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50/50 border border-amber-200 rounded-sm">
+        <div className="p-4 sm:p-5 bg-gradient-to-br from-amber-50 to-orange-50/50 border border-amber-200 rounded-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-amber-600" />
+                <Award className="w-5 h-5 text-amber-600 shrink-0" />
                 <h3 className="text-sm font-bold text-amber-950 uppercase tracking-wide">
                   Is the Nominating Organisation an AIMA Member?
                 </h3>
@@ -123,7 +123,7 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
               </p>
             </div>
 
-            <div className="flex items-center gap-4 bg-white px-3 py-2 rounded-sm border border-amber-300 shadow-2xs shrink-0">
+            <div className="flex items-center gap-4 bg-white px-3 py-2 rounded-sm border border-amber-300 shadow-2xs shrink-0 self-start sm:self-auto">
               <label className="flex items-center gap-2 text-xs font-bold text-gray-800 cursor-pointer">
                 <input
                   type="radio"
@@ -148,7 +148,7 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
           </div>
 
           {formData.isAimaMember && (
-            <div className="mt-4 pt-3 border-t border-amber-200/70 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <div className="mt-4 pt-3 border-t border-amber-200/70 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
               <label className="text-xs font-bold uppercase tracking-wider text-amber-950 whitespace-nowrap">
                 AIMA Membership / Corp Code (Optional):
               </label>
@@ -165,51 +165,51 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
 
         {/* Live Mathematical Fee Calculation Summary Card */}
         <div className="border-2 border-[#0b3c68]/20 bg-[#fbfdff] rounded-sm overflow-hidden shadow-xs">
-          <div className="bg-[#0b3c68] text-white px-6 py-3 flex justify-between items-center">
-            <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
-              <Calculator className="w-4 h-4 text-amber-300" />
-              Real-time Fee Calculation Statement
+          <div className="bg-[#0b3c68] text-white px-4 sm:px-6 py-3 flex justify-between items-center">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
+              <Calculator className="w-4 h-4 text-amber-300 shrink-0" />
+              <span>Real-time Fee Statement</span>
             </div>
-            <span className="text-xs bg-white/15 px-2.5 py-0.5 rounded text-sky-100 font-medium">
+            <span className="text-[11px] sm:text-xs bg-white/15 px-2.5 py-0.5 rounded text-sky-100 font-medium">
               Auto-Computed
             </span>
           </div>
 
-          <div className="p-6 space-y-4 text-sm">
+          <div className="p-4 sm:p-6 space-y-3.5 text-sm">
             {/* Row 1: Participants */}
             <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
-              <span className="text-gray-600 font-medium">
+              <span className="text-gray-600 font-medium text-xs sm:text-sm">
                 Total Nominated Participants
               </span>
-              <span className="font-bold text-gray-900">
+              <span className="font-bold text-gray-900 text-xs sm:text-sm">
                 {feeCalc.participantCount} Person{feeCalc.participantCount > 1 ? 's' : ''}
               </span>
             </div>
 
             {/* Row 2: Rate Breakdown */}
             <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
-              <span className="text-gray-600 font-medium">
-                Applicable Unit Rate ({feeCalc.tierLabel})
+              <span className="text-gray-600 font-medium text-xs sm:text-sm">
+                Applicable Rate ({feeCalc.tierLabel})
               </span>
-              <span className="font-semibold text-gray-800">
+              <span className="font-semibold text-gray-800 text-xs sm:text-sm">
                 {formatINR(feeCalc.ratePerPerson)} × {feeCalc.participantCount}
               </span>
             </div>
 
             {/* Row 3: Subtotal */}
             <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
-              <span className="text-gray-800 font-bold">Gross Subtotal</span>
-              <span className="font-bold text-gray-900 text-base">
+              <span className="text-gray-800 font-bold text-xs sm:text-sm">Gross Subtotal</span>
+              <span className="font-bold text-gray-900 text-sm sm:text-base">
                 {formatINR(feeCalc.subtotal)}
               </span>
             </div>
 
             {/* Row 4: AIMA Discount */}
             {formData.isAimaMember && (
-              <div className="flex justify-between items-center py-1.5 border-b border-amber-100 bg-amber-50/50 -mx-6 px-6 text-amber-900">
+              <div className="flex justify-between items-center py-1.5 border-b border-amber-100 bg-amber-50/50 -mx-4 sm:-mx-6 px-4 sm:px-6 text-amber-900 text-xs sm:text-sm">
                 <span className="font-semibold flex items-center gap-1.5">
-                  <Percent className="w-4 h-4 text-amber-600" />
-                  AIMA Member Privilege Discount (10%)
+                  <Percent className="w-4 h-4 text-amber-600 shrink-0" />
+                  AIMA Member Discount (10%)
                 </span>
                 <span className="font-bold text-emerald-700">
                   – {formatINR(feeCalc.discountAmount)}
@@ -219,8 +219,8 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
 
             {/* Row 5: Net Taxable Value */}
             <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
-              <span className="text-gray-600 font-medium">Taxable Base Amount</span>
-              <span className="font-semibold text-gray-800">
+              <span className="text-gray-600 font-medium text-xs sm:text-sm">Taxable Base Amount</span>
+              <span className="font-semibold text-gray-800 text-xs sm:text-sm">
                 {formatINR(feeCalc.netSubtotal)}
               </span>
             </div>
@@ -228,30 +228,30 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
             {/* Row 6: GST 18% */}
             <div className="flex justify-between items-center py-1.5 border-b border-gray-200">
               <div className="space-y-0.5">
-                <span className="text-gray-600 font-medium block">
-                  Applicable GST (18% – CGST 9% + SGST/IGST 9%)
+                <span className="text-gray-600 font-medium block text-xs sm:text-sm">
+                  Applicable GST (18%)
                 </span>
-                <span className="text-[11px] text-gray-400">
-                  SAC Code: 999293 (Commercial training & coaching)
+                <span className="text-[10px] sm:text-[11px] text-gray-400">
+                  SAC: 999293 (Commercial training)
                 </span>
               </div>
-              <span className="font-semibold text-gray-800">
+              <span className="font-semibold text-gray-800 text-xs sm:text-sm">
                 + {formatINR(feeCalc.gstAmount)}
               </span>
             </div>
 
             {/* Final Payable Total Row */}
-            <div className="flex justify-between items-center pt-3 pb-1 -mx-6 px-6 bg-[#0b3c68]/5 border-t border-[#0b3c68]/20">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pt-3 pb-1 -mx-4 sm:-mx-6 px-4 sm:px-6 bg-[#0b3c68]/5 border-t border-[#0b3c68]/20">
               <div>
-                <span className="text-sm font-extrabold uppercase tracking-wider text-[#0b3c68] block">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#0b3c68] block">
                   Total Final Payable Amount
                 </span>
-                <span className="text-[11px] text-gray-500 font-medium">
-                  Inclusive of all applicable taxes & bootcamp study materials
+                <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium">
+                  Inclusive of 18% GST & executive courseware
                 </span>
               </div>
-              <div className="text-right">
-                <span className="text-2xl sm:text-3xl font-black text-[#0b3c68] tracking-tight">
+              <div className="text-left sm:text-right">
+                <span className="text-xl sm:text-3xl font-black text-[#0b3c68] tracking-tight">
                   {formatINR(feeCalc.totalPayable)}
                 </span>
               </div>
@@ -260,11 +260,11 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
         </div>
 
         {/* Navigation Buttons */}
-        <div className="pt-6 border-t border-gray-200 flex justify-between items-center">
+        <div className="pt-6 border-t border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3">
           <button
             type="button"
             onClick={onPrev}
-            className="px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 border border-gray-300 text-gray-700 hover:bg-gray-50 font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Previous</span>
@@ -273,7 +273,7 @@ export const SectionParticipationFee: React.FC<SectionParticipationFeeProps> = (
           <button
             type="button"
             onClick={onNext}
-            className="px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#0b3c68] hover:bg-[#082a4a] text-white font-bold text-sm uppercase tracking-wider rounded-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <span>Proceed to Payment & Billing</span>
             <ArrowRight className="w-4 h-4" />
